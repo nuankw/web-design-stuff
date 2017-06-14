@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to the Wizarding World of Harry Potter!</title>
+    
+    <!-- music-->
+    <script src="music/audio.min.js"></script>
+    <script>
+        audiojs.events.ready(function() {
+                var as = audiojs.createAll();
+        });
+    </script>
+    
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Love+Ya+Like+A+Sister" rel="stylesheet"> 
+    
+    <!--style-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    
+    <!--import d3.js-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+    
+<body>
+    <h1>Harry Potter's Social Network Study</h1>
+    <svg width="800" height="500"></svg>
+    <script>
+        // inspired by https://bl.ocks.org/mbostock/4062045
+        var fillColor = {
+            "G": "rgba(255, 51, 0, 0.4)",
+            "S": "rgba(0, 153, 51, 0.4)",
+            "M": "rgba(51, 204, 255, 0.4)",
+            "O": "rgba(153, 153, 255, 0.4)",
+        };
+        
+        var StrokeColor = {
+            "P":"rgb(255, 153, 51)",
+            "E":"rgb(65, 85, 112)",
+            "U":"rgb(198, 190, 190)",
+        };
+        
+        var lineColor = [
+            "rgb(241, 65, 65)",
+            "rgb(255, 141, 10)",
+            "rgb(241, 220, 65)",
+            "rgb(179, 241, 65)",
+            "rgb(17, 200, 21)"
+        ];
+                
+        var color = d3.scaleOrdinal(d3.schemeCategory20);
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
+
+        var simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().distance(200)
+                                            .id(function(d) { return d.order; })
+              )
+            .force("charge", d3.forceManyBody())
+            .force("center", d3.forceCenter(width / 2, height / 2 + 30))
+            .force("y", d3.forceY(0))
+            .force("x", d3.forceX(0));
+
+        var text = svg.append("svg:g")
+                      .selectAll("g")
+                      .data(simulation.nodes())
+                      .enter().append("svg:g");
+
+        
+        d3.json("data/character.json", function(error, graph) {
+            if (error) throw error;
+
+            var link = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("stroke-width", function(d) { return d.weight})
+                .attr("stroke", function(d) {return lineColor[d.weight-1]}); // bug here
+
+            var node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter().append("circle")
+                .attr("r", 25)
+                .style("fill", function(d) {return fillColor[d.type]})
+                .style("stroke", function(d) {return StrokeColor[d.faction]})
+                .style("stroke-width",9)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+//                  .on( 'mouseenter', function() {
+//            // select element in current context
+//            d3.select( this )
+//              .transition()
+//              .attr("x", function(d) { return -60;})
+//              .attr("y", function(d) { return -60;})
+//              .attr("height", 100)
+//              .attr("width", 100);
+//          })
+//          // set back
+//                      .on( 'mouseleave', function() {
+//            d3.select( this )
+//              .transition()
+//              .attr("x", function(d) { return -25;})
+//              .attr("y", function(d) { return -25;})
+//              .attr("height", 50)
+//              .attr("width", 50);
+//            }));
+            // bug here
+            node.append("image")
+                .attr("xlink:href",  function(d) { return d.image;})
+            // bug here
+            text.append("text")
+                .attr("x", 8)
+                .attr("y", ".31em")
+                .attr("class", "shadow")
+                .text(function (d) { return d.name; });
+         
+            node.append("title")
+                .text(function(d) { return d.order; });
+
+            simulation
+                .nodes(graph.nodes)
+                .on("tick", ticked);
+
+            simulation.force("link")
+                .links(graph.links);
+
+        function ticked() {
+            link
+                .attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node
+                .attr("cx", function(d) { return d.x; })
+                .attr("cy", function(d) { return d.y; });
+        }
+});
+
+        function dragstarted(d) {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(d) {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
+
+        function dragended(d) {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+    </script>
+    
+    <div id="musicBar">
+       <audio src="music/HP-theme.mp3" preload="auto" loop="loop"/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+Plans for my Harry Potter Network:
+
+The BIG picture:
+     start with smaller networks (less hard-coded data) and focus on the change of relationship between pair of characters 
+     -- how such relationships envolve along with the development of the story
+
+For draft(presentation) I will only create graph before entering the wizarding world. Thus, most the the characters do not show the "HOUSE" property -- gold for witches and wizards, silver for muggles, bronze for Higrid/elfs/fantastic beasts.
+
+
+Every character is a node containg such info:
+
+=======ORDER======== [now]
+the oder of appearance (start from 0, treated as each character's unique ID), which is equal to the index of the character in the json.characters "list" 
+====================
+
+========NAME======== [now]
+just the name (first + last is enough, don't want to deal with extra long middle names lol)
+====================
+
+=======IMAGE======== [now]
+the address of the image relative to the index.html in the root file
+====================
+
+========TYPE======== [now] ==> assign different filling color to this factor
+M/G/H/R/S/F/O/U
+Muggle: M
+Gryffindor: G
+Hufflepuff: H
+Ravenclaw: R
+Slytherin: S
+Foreign magicians: F
+Other magical creatures (beasts, elves, goasts, figures in pictures): O
+Unkown or unclear: U
+====================
+
+=======FACTION====== [later] ==> assign different boarder color to this factor
+P/A/M/E/N/G
+Order of the Phoenix: P
+D.A.: A
+The Ministry of Magic: M
+Death Eaters: E
+Neutral: N
+"For the Greater Good" (and Deathly Hallows): G (wait...Then everything in Fantastic Beasts also???)
+====================
+
+====FIRST-APPEAR====[later]
+[x,y] x for book, y for chapters
+====================
+
+========WORDS========[now]
+One/Two-sentence(s) the character says
+====================
+
+
+Color choices:
+
+===>Color of graph edges: 
+
+Relationship                      Color                   Graph Weight
+for sure to include:
+Real Enemy                        rgb(241, 65, 65)        1
+Resisting                         rgb(255, 141, 10)       2
+Neutral                           rgb(241, 220, 65)       3
+Friend                            rgb(179, 241, 65)       4
+Best Friend／family／advocator     rgb(17, 200, 21)        5
+
+
+
+maybe later I should distinguish those from the above:  (no need for the first book though lol)
+Lovers                            rgb(204, 36, 255)       ???
+Servant                           rgb(0, 255, 221)        ???
+
+
+===>Filling Color for TYPE
+Muggle: M
+Gryffindor: G
+Hufflepuff: H
+Ravenclaw: R
+Slytherin: S
+Foreign magicians: F
+Other magical creatures (fantastic beasts, elves, goasts, figures in pictures):O
+Unkown or not clear: U
+
+===>Boarder Color for FACTION
+Order of the Phoenix: P
+D.A.: A
+The Ministry of Magic: M
+Death Eaters: E
+Neutral: N
+"For the Greater Good" (and Deathly Hallows): G 
+

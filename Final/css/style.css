@@ -1,0 +1,154 @@
+/*
+font-family: 'Clicker Script', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+*/
+
+/*background picture*/
+body { 
+    background: #5c5c5c url("../images/background/background.jpeg"); 
+    background-attachment:fixed;
+/*    background-size: 100% 100%;*/
+}
+
+/*music bar*/
+div#musicBar {
+    position:fixed;
+    left:0px;
+    top:95%;
+}
+
+/* transbox */
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+/*header*/
+h1 {
+/*  font-family: 'Clicker Script', cursive;*/
+  font-family: 'Love Ya Like A Sister', cursive;
+  margin: 10px,100px;
+  border: 100px;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.7);
+  border: 1px solid black;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+
+/* For d3 animation*/
+
+svg{
+    display: block;
+    margin:auto;
+  padding: 10px,100px;
+  background-color: rgba(255,255,255,0.7);
+  border: 1px solid black;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+/*The following is the style for the sliders
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.9px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 11.2px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(255, 132, 0, 0.64);
+  border-radius: 5.9px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1.1px solid #000000;
+  height: 23px;
+  width: 17px;
+  border-radius: 6px;
+  background: rgba(255, 242, 0, 0.65);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.1px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(255, 235, 214, 0.64);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 11.2px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(255, 132, 0, 0.64);
+  border-radius: 5.9px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1.1px solid #000000;
+  height: 23px;
+  width: 17px;
+  border-radius: 6px;
+  background: rgba(255, 242, 0, 0.65);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 11.2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: rgba(41, 21, 0, 0.64);
+  border: 0.2px solid #010101;
+  border-radius: 11.8px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: rgba(255, 132, 0, 0.64);
+  border: 0.2px solid #010101;
+  border-radius: 11.8px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1.1px solid #000000;
+  height: 23px;
+  width: 17px;
+  border-radius: 6px;
+  background: rgba(255, 242, 0, 0.65);
+  cursor: pointer;
+  height: 11.2px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: rgba(255, 132, 0, 0.64);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: rgba(255, 235, 214, 0.64);
+}
+*/

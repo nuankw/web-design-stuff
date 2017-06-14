@@ -1,0 +1,82 @@
+ /*
+    "characters-all":[
+        {
+            "order":0,
+            "name":"Vernon Dursley",
+            "image":"../images/characters/VD.png",
+            "type":"M", // muggle
+            "faction":"U", // unclear (probably D.A. in a certain sense)
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "words":"There's no such thing as magic!"
+        },
+        {
+            "order":1,
+            "name":"Petunia Dursley",
+            "image":"../images/characters/PD.png",
+            "type":"M",
+            "faction":"U",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "words":"It was Lily this and Lily that, they were proud of having a witch in the family!"
+        },
+        {
+            "order":2,
+            "name":"Dudley Dursley",
+            "image":"../images/characters/DD.png",
+            "type":"M",
+            "faction":"D.A.",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "words":"I don’t think you’re a waste of space. You saved my life."
+        },        
+        {
+            "order":3,
+            "name":"James Potter",
+            "image":"../images/characters/JP.png",
+            "type":"",
+            "faction":"",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "words":""
+        },
+        {
+            "order":4,
+            "name":"Lily Potter",
+            "image":"../images/characters/LE.png",
+            "type":"",
+            "faction":"",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "description":""
+        },
+        {
+            "order":5,
+            "name":"Harry Potter",
+            "image":"../images/characters/HP.png",
+            "type":"",
+            "faction":"",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "description":""
+        },
+        {
+            "order":5,
+            "name":"Ron Weasley",
+            "image":"../images/characters/HP.png",
+            "type":"",
+            "faction":"",
+            "first-appear-book":1,
+            "first-appear-char":1,
+            "description":""
+        },
+    ],
+    */
+    
+        // I am implementing a undirected but weighted graph
+    // for small test and initial state (final project of art22), I probably will not using python/c/java as a back-end language to generate a json file. instead, I might just input those values one by one by hand...
+    // rule: source < target, the num is the order in "characters"
+    // about weight: 5 levels: 
+    // love(5)->like(4)->neutral(3)->dislike(2)->hate(1)
+    // I choose "love" to be the most powerful one (the most weighted) of all, because that is one of the greatest ideas presented through the harry potter series
+    // from HP
